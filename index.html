@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Little Book</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📖 My Little Book</h1>
+<p class="subtitle">A place for your thoughts & memories</p>
+
+<button id="newEntryBtn">+ New Entry</button>
+
+<div class="book">
+
+<div class="page left">
+<h2 id="titleDisplay">No Entries Yet</h2>
+<p id="dateDisplay"></p>
+<p id="moodDisplay"></p>
+</div>
+
+<div class="page right">
+<p id="textDisplay">
+Start writing your first memory ✨
+</p>
+</div>
+
+</div>
+
+<div class="navButtons">
+<button id="prevBtn">⬅ Previous</button>
+<button id="nextBtn">Next ➡</button>
+</div>
+
+</div>
+
+<!-- Entry Popup -->
+
+<div id="entryModal" class="modal">
+
+<div class="modal-content">
+
+<h2>New Entry</h2>
+
+<input id="titleInput"
+placeholder="Entry Title">
+
+<select id="moodInput">
+<option>😊 Happy</option>
+<option>😢 Sad</option>
+<option>😴 Tired</option>
+<option>😡 Angry</option>
+<option>❤️ Love</option>
+</select>
+
+<textarea
+id="textInput"
+placeholder="Write your thoughts...">
+</textarea>
+
+<button id="saveEntryBtn">
+Save Entry
+</button>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
