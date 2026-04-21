@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Pacifico&family=Quicksand:wght@400;600&display=swap');
 
+/* 🎀 BODY BACKGROUND */
+
 body {
 
 margin: 0;
 
 font-family: 'Quicksand', sans-serif;
 
-/* 🎀 Bow Background */
+/* Darker aesthetic pink */
+background-color: #e89aac;
 
-background-color: #f4b6c2;
-
+/* 🎀 Bow pattern */
 background-image:
 url("https://www.transparenttextures.com/patterns/cute-bow.png");
 
@@ -22,6 +24,84 @@ display: flex;
 justify-content: center;
 
 align-items: center;
+
+}
+
+/* 🎀 COVER SCREEN */
+
+#cover {
+
+text-align: center;
+
+background: #fff0f5;
+
+padding: 40px;
+
+border-radius: 20px;
+
+box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+
+}
+
+.subtitle {
+
+color: #6b2f4a;
+
+font-size: 18px;
+
+margin-bottom: 20px;
+
+}
+
+/* Cover choices */
+
+.cover-options {
+
+display: flex;
+
+gap: 15px;
+
+justify-content: center;
+
+margin-bottom: 20px;
+
+}
+
+.cover-choice {
+
+padding: 15px 20px;
+
+border-radius: 15px;
+
+cursor: pointer;
+
+font-weight: 600;
+
+transition: 0.2s;
+
+}
+
+.cover-choice:hover {
+
+transform: scale(1.05);
+
+}
+
+.pink {
+
+background: #ffc0cb;
+
+}
+
+.lavender {
+
+background: #e6ccff;
+
+}
+
+.beige {
+
+background: #f5e6d3;
 
 }
 
@@ -47,7 +127,7 @@ font-size: 42px;
 
 }
 
-/* BOOK */
+/* 📖 BOOK */
 
 .book {
 
@@ -59,9 +139,11 @@ margin-top: 20px;
 
 }
 
-/* Pages */
+/* 📄 PAGE */
 
 .page {
+
+position: relative;
 
 width: 320px;
 
@@ -77,11 +159,9 @@ overflow-y: auto;
 
 border-radius: 10px;
 
-transition: transform 0.3s;
-
 }
 
-/* Paper lines */
+/* Notebook lines */
 
 .page::before {
 
@@ -90,8 +170,11 @@ content: "";
 position: absolute;
 
 top: 0;
+
 left: 0;
+
 right: 0;
+
 bottom: 0;
 
 background-image:
@@ -104,9 +187,11 @@ transparent 24px,
 
 opacity: 0.5;
 
+pointer-events: none;
+
 }
 
-/* Cursive writing */
+/* ✍️ Cursive writing */
 
 #textDisplay {
 
@@ -118,9 +203,13 @@ font-size: 20px;
 
 color: #444;
 
+position: relative;
+
+z-index: 1;
+
 }
 
-/* Buttons */
+/* 🎀 Buttons */
 
 button {
 
@@ -144,6 +233,8 @@ cursor: pointer;
 
 margin: 5px;
 
+transition: 0.2s;
+
 }
 
 button:hover {
@@ -152,7 +243,7 @@ transform: scale(1.05);
 
 }
 
-/* Modal */
+/* 🎀 Modal */
 
 .modal {
 
@@ -161,9 +252,11 @@ display: none;
 position: fixed;
 
 top: 0;
+
 left: 0;
 
 width: 100%;
+
 height: 100%;
 
 background: rgba(0,0,0,0.4);
@@ -181,6 +274,8 @@ margin: 10% auto;
 padding: 20px;
 
 border-radius: 16px;
+
+box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 
 }
 
@@ -200,7 +295,22 @@ border-radius: 10px;
 
 border: 1px solid #ddd;
 
+font-family: 'Quicksand', sans-serif;
+
 }
+
+textarea {
+
 resize: none;
+
+height: 120px;
+
+}
+
+/* Navigation buttons */
+
+.navButtons {
+
+margin-top: 15px;
 
 }
