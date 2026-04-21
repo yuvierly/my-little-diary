@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Aesthetic Diary Design System — Soft pink, lavender, vintage. All HSL. */
+
+@layer base {
+  :root {
+    --background: 348 60% 88%;
+    --foreground: 340 30% 22%;
+    --card: 30 45% 96%;
+    --card-foreground: 340 30% 22%;
+    --popover: 30 45% 97%;
+    --popover-foreground: 340 30% 22%;
+    --primary: 340 55% 55%;
+    --primary-foreground: 30 45% 98%;
+    --secondary: 340 50% 82%;
+    --secondary-foreground: 340 40% 25%;
+    --muted: 340 35% 90%;
+    --muted-foreground: 340 20% 45%;
+    --accent: 280 35% 78%;
+    --accent-foreground: 280 40% 22%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 340 30% 80%;
+    --input: 340 30% 85%;
+    --ring: 340 55% 55%;
+    --radius: 1rem;
+
+    --bow-pink: 345 75% 70%;
+    --bow-pink-deep: 340 60% 55%;
+    --bg-pink-soft: 348 65% 86%;
+    --bg-pink-deeper: 345 55% 78%;
+    --paper-cream: 38 55% 95%;
+    --paper-line: 200 40% 75%;
+    --paper-margin: 0 60% 70%;
+    --book-spine: 340 35% 40%;
+    --gold: 38 70% 60%;
+
+    --cover-pink-1: 345 70% 72%;
+    --cover-pink-2: 340 60% 58%;
+    --cover-lav-1: 270 45% 78%;
+    --cover-lav-2: 265 40% 60%;
+    --cover-vintage-1: 35 45% 78%;
+    --cover-vintage-2: 25 35% 50%;
+
+    --shadow-book: 0 30px 60px -20px hsl(340 50% 30% / 0.45), 0 18px 36px -18px hsl(340 50% 25% / 0.35);
+    --shadow-page: 0 10px 30px -10px hsl(340 40% 30% / 0.25);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 340 30% 18%;
+    --foreground: 30 45% 95%;
+    --card: 340 25% 22%;
+    --card-foreground: 30 45% 95%;
+    --popover: 340 25% 22%;
+    --popover-foreground: 30 45% 95%;
+    --primary: 340 60% 70%;
+    --primary-foreground: 340 30% 15%;
+    --secondary: 340 25% 30%;
+    --secondary-foreground: 30 45% 95%;
+    --muted: 340 20% 28%;
+    --muted-foreground: 340 15% 70%;
+    --accent: 280 35% 50%;
+    --accent-foreground: 30 45% 95%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 340 20% 30%;
+    --input: 340 20% 30%;
+    --ring: 340 60% 70%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply text-foreground;
+    background-color: hsl(var(--bg-pink-deeper));
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='110' height='110' viewBox='0 0 110 110'><g opacity='0.55'><path d='M55 55 C45 45, 30 45, 25 52 C20 58, 30 65, 45 60 C40 62, 38 65, 38 68 C38 72, 45 72, 50 68 C53 70, 57 70, 60 68 C65 72, 72 72, 72 68 C72 65, 70 62, 65 60 C80 65, 90 58, 85 52 C80 45, 65 45, 55 55 Z' fill='%23f8c8d8'/><circle cx='55' cy='58' r='4' fill='%23f4b3c8'/></g></svg>");
+    background-size: 110px 110px;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .paper-lined {
+    background-color: hsl(var(--paper-cream));
+    background-image: linear-gradient(hsl(var(--paper-line) / 0.5) 1px, transparent 1px);
+    background-size: 100% 32px;
+    background-position: 0 48px;
+  }
+  .paper-lined::before {
+    content: "";
+    position: absolute;
+    left: 56px; top: 0; bottom: 0;
+    width: 2px;
+    background: hsl(var(--paper-margin) / 0.55);
+  }
+
+  .paper-texture {
+    background-image:
+      radial-gradient(circle at 20% 10%, hsl(38 60% 90% / 0.6), transparent 40%),
+      radial-gradient(circle at 80% 80%, hsl(38 50% 88% / 0.5), transparent 50%);
+  }
+
+  .book-shadow { box-shadow: var(--shadow-book); }
+  .page-shadow { box-shadow: var(--shadow-page); }
+
+  .handwritten { font-family: 'Caveat', cursive; }
+  .serif-cover { font-family: 'Cormorant Garamond', serif; }
+
+  .ribbon-bookmark {
+    position: absolute;
+    top: -6px;
+    right: 40px;
+    width: 32px;
+    height: 110px;
+    background: linear-gradient(180deg, hsl(var(--bow-pink-deep)), hsl(var(--bow-pink)));
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
+    box-shadow: 0 6px 12px hsl(340 50% 30% / 0.35);
+  }
+}
+
+@layer utilities {
+  .perspective-book { perspective: 2500px; }
+  .preserve-3d { transform-style: preserve-3d; }
+  .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+}
