@@ -1,0 +1,88 @@
+import type { Config } from "tailwindcss";
+
+export default {
+  darkMode: ["class"],
+  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  prefix: "",
+  theme: {
+    container: { center: true, padding: "2rem", screens: { "2xl": "1400px" } },
+    extend: {
+      fontFamily: {
+        cursive: ['Dancing Script', 'cursive'],
+        caveat: ['Caveat', 'cursive'],
+        sacramento: ['Sacramento', 'cursive'],
+        shadows: ['Shadows Into Light', 'cursive'],
+        patrick: ['Patrick Hand', 'cursive'],
+        homemade: ['Homemade Apple', 'cursive'],
+        serifCover: ['Cormorant Garamond', 'serif'],
+        playfair: ['Playfair Display', 'serif'],
+      },
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: { DEFAULT: "hsl(var(--primary))", foreground: "hsl(var(--primary-foreground))" },
+        secondary: { DEFAULT: "hsl(var(--secondary))", foreground: "hsl(var(--secondary-foreground))" },
+        destructive: { DEFAULT: "hsl(var(--destructive))", foreground: "hsl(var(--destructive-foreground))" },
+        muted: { DEFAULT: "hsl(var(--muted))", foreground: "hsl(var(--muted-foreground))" },
+        accent: { DEFAULT: "hsl(var(--accent))", foreground: "hsl(var(--accent-foreground))" },
+        popover: { DEFAULT: "hsl(var(--popover))", foreground: "hsl(var(--popover-foreground))" },
+        card: { DEFAULT: "hsl(var(--card))", foreground: "hsl(var(--card-foreground))" },
+        bow: { DEFAULT: "hsl(var(--bow-pink))", deep: "hsl(var(--bow-pink-deep))" },
+        paper: { DEFAULT: "hsl(var(--paper-cream))", line: "hsl(var(--paper-line))", margin: "hsl(var(--paper-margin))" },
+        gold: "hsl(var(--gold))",
+        sidebar: {
+          DEFAULT: "hsl(var(--sidebar-background))",
+          foreground: "hsl(var(--sidebar-foreground))",
+          primary: "hsl(var(--sidebar-primary))",
+          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
+          accent: "hsl(var(--sidebar-accent))",
+          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+          border: "hsl(var(--sidebar-border))",
+          ring: "hsl(var(--sidebar-ring))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      keyframes: {
+        "accordion-down": { from: { height: "0" }, to: { height: "var(--radix-accordion-content-height)" } },
+        "accordion-up": { from: { height: "var(--radix-accordion-content-height)" }, to: { height: "0" } },
+        "fade-in": { "0%": { opacity: "0", transform: "translateY(8px)" }, "100%": { opacity: "1", transform: "translateY(0)" } },
+        "scale-in": { "0%": { opacity: "0", transform: "scale(0.96)" }, "100%": { opacity: "1", transform: "scale(1)" } },
+        "book-open": {
+          "0%": { transform: "rotateY(0deg)" },
+          "100%": { transform: "rotateY(-170deg)" },
+        },
+        "page-flip-next": {
+          "0%": { transform: "rotateY(0deg)", boxShadow: "0 0 0 hsl(0 0% 0% / 0)" },
+          "50%": { boxShadow: "-20px 10px 40px hsl(340 40% 30% / 0.35)" },
+          "100%": { transform: "rotateY(-180deg)", boxShadow: "0 0 0 hsl(0 0% 0% / 0)" },
+        },
+        "page-flip-prev": {
+          "0%": { transform: "rotateY(-180deg)" },
+          "100%": { transform: "rotateY(0deg)" },
+        },
+        "float-bow": {
+          "0%, 100%": { transform: "translateY(0) rotate(-4deg)" },
+          "50%": { transform: "translateY(-10px) rotate(4deg)" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.5s ease-out",
+        "scale-in": "scale-in 0.3s ease-out",
+        "book-open": "book-open 1.4s cubic-bezier(0.7, 0, 0.3, 1) forwards",
+        "page-flip-next": "page-flip-next 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards",
+        "page-flip-prev": "page-flip-prev 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards",
+        "float-bow": "float-bow 6s ease-in-out infinite",
+      },
+    },
+  },
+  plugins: [require("tailwindcss-animate")],
+} satisfies Config;
