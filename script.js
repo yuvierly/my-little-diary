@@ -3,6 +3,18 @@ JSON.parse(localStorage.getItem("journalEntries")) || [];
 
 let currentIndex = 0;
 
+let selectedCover = "pink";
+
+/* COVER FUNCTIONS */
+
+function selectCover(type) {
+
+selectedCover = type;
+
+document.body.className = type;
+
+}
+
 function openBook() {
 
 document.getElementById("cover").style.display = "none";
@@ -11,7 +23,7 @@ document.getElementById("diary").style.display = "block";
 
 }
 
-/* Modal */
+/* MODAL */
 
 const modal =
 document.getElementById("entryModal");
@@ -73,6 +85,8 @@ displayEntry();
 
 };
 
+/* DISPLAY ENTRY */
+
 function displayEntry() {
 
 if (entries.length === 0) return;
@@ -109,6 +123,8 @@ entry.color;
 
 }
 
+/* NAVIGATION */
+
 document
 .getElementById("prevBtn")
 .onclick = () => {
@@ -137,7 +153,6 @@ displayEntry();
 
 };
 
-displayEntry();
-}
+/* LOAD FIRST ENTRY */
 
 displayEntry();
