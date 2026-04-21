@@ -1,8 +1,17 @@
-let entries = JSON.parse(
-localStorage.getItem("journalEntries")
-) || [];
+let entries =
+JSON.parse(localStorage.getItem("journalEntries")) || [];
 
 let currentIndex = 0;
+
+function openBook() {
+
+document.getElementById("cover").style.display = "none";
+
+document.getElementById("diary").style.display = "block";
+
+}
+
+/* Modal */
 
 const modal =
 document.getElementById("entryModal");
@@ -28,6 +37,12 @@ document.getElementById("moodInput").value;
 const text =
 document.getElementById("textInput").value;
 
+const font =
+document.getElementById("fontSelect").value;
+
+const color =
+document.getElementById("colorSelect").value;
+
 const date =
 new Date().toLocaleDateString();
 
@@ -36,6 +51,8 @@ const entry = {
 title,
 mood,
 text,
+font,
+color,
 date
 
 };
@@ -55,6 +72,42 @@ entries.length - 1;
 displayEntry();
 
 };
+
+function displayEntry() {
+
+if (entries.length === 0) return;
+
+const entry =
+entries[currentIndex];
+
+document.getElementById(
+"titleDisplay"
+).innerText =
+entry.title;
+
+document.getElementById(
+"dateDisplay"
+).innerText =
+entry.date;
+
+document.getElementById(
+"moodDisplay"
+).innerText =
+entry.mood;
+
+const textEl =
+document.getElementById("textDisplay");
+
+textEl.innerText =
+entry.text;
+
+textEl.style.fontFamily =
+entry.font;
+
+textEl.style.color =
+entry.color;
+
+}
 
 document
 .getElementById("prevBtn")
@@ -84,33 +137,7 @@ displayEntry();
 
 };
 
-function displayEntry() {
-
-if (entries.length === 0) return;
-
-const entry =
-entries[currentIndex];
-
-document.getElementById(
-"titleDisplay"
-).innerText =
-entry.title;
-
-document.getElementById(
-"dateDisplay"
-).innerText =
-entry.date;
-
-document.getElementById(
-"moodDisplay"
-).innerText =
-entry.mood;
-
-document.getElementById(
-"textDisplay"
-).innerText =
-entry.text;
-
+displayEntry();
 }
 
 displayEntry();
